@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+    </head>
+    <body>
+        <div data-lightning-out="true"></div>
+
+        <script>
+            const appName = "c:CCPAFormOut";
+            const componentName = "c:optOutForm";
+            const lightningEndpoint = "https://skimlinks--empaua.lightning.force.com/";
+            const targetElement = document.querySelector("[data-lightning-out]");
+            const componentAttributes = { language: "fr" };
+
+            $Lightning.use(
+                appName,
+                function () {
+                    $Lightning.createComponent(
+                        componentName,
+                        componentAttributes,
+                        targetElement,
+                        function (cmp) {
+                            console.log("lightning component created");
+                        }
+                    );
+                },
+                lightningEndpoint
+            );
+        </script>
+    </body>
+</html>
